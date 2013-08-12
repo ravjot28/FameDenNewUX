@@ -94,6 +94,7 @@ public class RegistrationSceneController implements Initializable, IScreenContro
                 }
             } else {
                 if(!CommonValidations.isStringEmpty(registrationBindingDTO.getEmailAddress())){
+                    emailAddressTextField.setText(null);
                     emailAddressTextField.setPromptText("Please Enter Valid Email ID");
                 }
                 InvokeAnimation.attentionSeekerWobble(emailAddressTextField);
