@@ -5,7 +5,7 @@
 package com.ravs.start;
 
 import com.ravs.constants.GlobalConstants;
-import com.ravs.fxml.ScreenController;
+import com.ravs.fxml.SceneNavigator;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -20,13 +20,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        ScreenController screenController = new ScreenController();
-        screenController.loadScreen(GlobalConstants.registrationScene, GlobalConstants.registrationSceneFXML);
+        SceneNavigator sceneNavigator = new SceneNavigator();
+        sceneNavigator.loadScreen(GlobalConstants.registrationScene, GlobalConstants.registrationSceneFXML);
         
         Group root = new Group();
-        root.getChildren().addAll(screenController);
+        root.getChildren().addAll(sceneNavigator);
         root.autosize();
-        screenController.setScreen(GlobalConstants.registrationScene);
+        sceneNavigator.setScreen(GlobalConstants.registrationScene);
         Scene scene = new Scene(root);
         //scene.getStylesheets().add(GlobalConstants.calendarCSSPath);
         
