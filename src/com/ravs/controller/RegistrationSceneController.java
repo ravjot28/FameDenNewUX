@@ -21,7 +21,7 @@ import javafx.scene.control.TextField;
  *
  * @author Ravjot
  */
-public class RegistrationSceneController implements Initializable, ControlledScreen {
+public class RegistrationSceneController implements Initializable, IScreenController {
 
     @FXML
     TextField fullNameTextField;
