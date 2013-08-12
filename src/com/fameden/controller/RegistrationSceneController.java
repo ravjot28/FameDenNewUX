@@ -80,6 +80,10 @@ public class RegistrationSceneController implements Initializable, IScreenContro
                                 registrationDTO.setEmailAddress(registrationBindingDTO.getEmailAddress());
                                 registrationDTO.setPassword(registrationBindingDTO.getPassword());
                             } else {
+                                confirmPasswordTextField.setText(null);
+                                passwordTextField.setText(null);
+                                confirmPasswordTextField.setPromptText("Password Do Not Match");
+                                passwordTextField.setPromptText("Password Do Not Match");
                                 InvokeAnimation.attentionSeekerShake(confirmPasswordTextField);
                                 InvokeAnimation.attentionSeekerShake(passwordTextField);
                             }
