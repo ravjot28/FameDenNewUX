@@ -17,14 +17,14 @@ public class InvokeAnimation {
     public static void attentionSeekerShake(Node node) {
         ShakeAnimation shakeTransition;
         shakeTransition = new ShakeAnimation(node);
-        //node.getStyleClass().add("error");
+        node.getStyleClass().add("promptTextError");
         shakeTransition.play();
     }
 
     public static void attentionSeekerWobble(Node node) {
         WobbleAnimation wobbleTransition;
         wobbleTransition = new WobbleAnimation(node);
-        //node.getStyleClass().add("error");
+        node.getStyleClass().add("promptTextError");
         wobbleTransition.play();
     }
 }
