@@ -5,6 +5,7 @@
 package com.fameden.controller;
 
 import com.fameden.bindingDTO.RegistrationBindingDTO;
+import com.fameden.constants.GlobalConstants;
 import com.fameden.dto.RegistrationDTO;
 import com.fameden.fxml.SceneNavigator;
 import com.fameden.util.CommonValidations;
@@ -82,8 +83,8 @@ public class RegistrationSceneController implements Initializable, IScreenContro
                             } else {
                                 confirmPasswordTextField.setText(null);
                                 passwordTextField.setText(null);
-                                confirmPasswordTextField.setPromptText("Password Do Not Match");
-                                passwordTextField.setPromptText("Password Do Not Match");
+                                confirmPasswordTextField.setPromptText(GlobalConstants.passwordDoNotMatchMessage);
+                                passwordTextField.setPromptText(GlobalConstants.passwordDoNotMatchMessage);
                                 InvokeAnimation.attentionSeekerShake(confirmPasswordTextField);
                                 InvokeAnimation.attentionSeekerShake(passwordTextField);
                             }
@@ -99,7 +100,7 @@ public class RegistrationSceneController implements Initializable, IScreenContro
             } else {
                 if(!CommonValidations.isStringEmpty(registrationBindingDTO.getEmailAddress())){
                     emailAddressTextField.setText(null);
-                    emailAddressTextField.setPromptText("Please Enter Valid Email ID");
+                    emailAddressTextField.setPromptText(GlobalConstants.invalidEmailIDMessage);
                 }
                 InvokeAnimation.attentionSeekerWobble(emailAddressTextField);
             }
