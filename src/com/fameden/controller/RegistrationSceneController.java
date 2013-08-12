@@ -62,7 +62,7 @@ public class RegistrationSceneController implements Initializable, IScreenContro
         System.out.println("Sign Up");
 
         if (!CommonValidations.isStringEmpty(registrationBindingDTO.getFullName())) {
-            if (!CommonValidations.isValidEmailAddress(registrationBindingDTO.getEmailAddress())) {
+            if (CommonValidations.isValidEmailAddress(registrationBindingDTO.getEmailAddress())) {
                 if (!CommonValidations.isStringEmpty(registrationBindingDTO.getUserName())) {
                     if (!CommonValidations.isStringEmpty(registrationBindingDTO.getPassword())) {
                         if (!CommonValidations.isStringEmpty(registrationBindingDTO.getConfrimPassword())) {
