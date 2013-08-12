@@ -4,7 +4,7 @@
  */
 package com.ravs.controller;
 
-import com.ravs.fxml.ScreenController;
+import com.ravs.fxml.SceneNavigator;
 
 /**
  *
@@ -12,6 +12,6 @@ import com.ravs.fxml.ScreenController;
  */
 public interface ControlledScreen {
     
-    public void setScreenParent(ScreenController screenPage);
+    public void setScreenParent(SceneNavigator screenPage);
     
 }
