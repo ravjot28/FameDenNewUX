@@ -68,8 +68,6 @@ public class RegistrationSceneController implements Initializable, IScreenContro
                     if (!CommonValidations.isStringEmpty(registrationBindingDTO.getPassword())) {
                         if (!CommonValidations.isStringEmpty(registrationBindingDTO.getConfrimPassword())) {
                             if (registrationBindingDTO.getPassword().equals(registrationBindingDTO.getConfrimPassword())) {
-                                
-                                
                                 System.out.println("fullNameTextField " + registrationBindingDTO.getFullName());
                                 System.out.println("emailAddressTextField " + registrationBindingDTO.getEmailAddress());
                                 System.out.println("userNameTextField " + registrationBindingDTO.getUserName());
@@ -98,7 +96,7 @@ public class RegistrationSceneController implements Initializable, IScreenContro
                     InvokeAnimation.attentionSeekerWobble(userNameTextField);
                 }
             } else {
-                if(!CommonValidations.isStringEmpty(registrationBindingDTO.getEmailAddress())){
+                if (!CommonValidations.isStringEmpty(registrationBindingDTO.getEmailAddress())) {
                     emailAddressTextField.setText(null);
                     emailAddressTextField.setPromptText(GlobalConstants.invalidEmailIDMessage);
                 }
@@ -107,7 +105,6 @@ public class RegistrationSceneController implements Initializable, IScreenContro
         } else {
             InvokeAnimation.attentionSeekerWobble(fullNameTextField);
         }
-
     }
 
     @FXML
