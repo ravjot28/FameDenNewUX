@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ravs.fxml;
+package com.fameden.fxml;
 
-import com.ravs.controller.IScreenController;
+import com.fameden.controller.IScreenController;
 import java.util.HashMap;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;

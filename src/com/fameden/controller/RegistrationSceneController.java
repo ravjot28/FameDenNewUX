@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ravs.controller;
+package com.fameden.controller;
 
-import com.ravs.bindingDTO.RegistrationBindingDTO;
-import com.ravs.dto.RegistrationDTO;
-import com.ravs.fxml.SceneNavigator;
-import com.ravs.util.CommonValidations;
-import com.ravs.util.InvokeAnimation;
+import com.fameden.bindingDTO.RegistrationBindingDTO;
+import com.fameden.dto.RegistrationDTO;
+import com.fameden.fxml.SceneNavigator;
+import com.fameden.util.CommonValidations;
+import com.fameden.util.InvokeAnimation;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;

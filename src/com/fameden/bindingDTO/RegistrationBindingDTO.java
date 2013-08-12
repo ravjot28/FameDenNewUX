@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ravs.bindingDTO;
+package com.fameden.bindingDTO;
 
 import java.io.Serializable;
 import javafx.beans.property.SimpleStringProperty;

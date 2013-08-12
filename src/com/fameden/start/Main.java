@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ravs.start;
+package com.fameden.start;
 
-import com.ravs.constants.GlobalConstants;
-import com.ravs.fxml.SceneNavigator;
+import com.fameden.constants.GlobalConstants;
+import com.fameden.fxml.SceneNavigator;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;

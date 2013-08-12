@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ravs.util;
+package com.fameden.util;
 
-import com.ravs.animations.ShakeAnimation;
-import com.ravs.animations.WobbleAnimation;
+import com.fameden.animations.ShakeAnimation;
+import com.fameden.animations.WobbleAnimation;
 import javafx.scene.Node;
 
 /**
