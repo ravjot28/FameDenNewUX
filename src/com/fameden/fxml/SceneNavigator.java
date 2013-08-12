@@ -64,10 +64,10 @@ public class SceneNavigator extends StackPane {
 
     public boolean setScreen(final String name) {
 
-        if (screens.get(name) != null) { //screen loaded 
+        if (screens.get(name) != null) { 
             final DoubleProperty opacity = opacityProperty();
-
-            //Is there is more than one screen 
+            
+            
             if (!getChildren().isEmpty()) {
                 Timeline fade = new Timeline(
                         new KeyFrame(Duration.ZERO,
@@ -76,9 +76,7 @@ public class SceneNavigator extends StackPane {
                         new EventHandler() {
                     @Override
                     public void handle(Event t) {
-                        //remove displayed screen 
                         getChildren().remove(0);
-                        //add new screen 
                         getChildren().add(0, (Node)(screens.get(name)[0]));
                         Timeline fadeIn = new Timeline(
                                 new KeyFrame(Duration.ZERO,
@@ -90,7 +88,6 @@ public class SceneNavigator extends StackPane {
                 }, new KeyValue(opacity, 0.0)));
                 fade.play();
             } else {
-                //no one else been displayed, then just show 
                 setOpacity(0.0);
                 getChildren().add((Node)(screens.get(name)[0]));
                 Timeline fadeIn = new Timeline(
