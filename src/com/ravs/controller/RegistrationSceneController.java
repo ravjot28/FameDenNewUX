@@ -6,7 +6,7 @@ package com.ravs.controller;
 
 import com.ravs.bindingDTO.RegistrationBindingDTO;
 import com.ravs.dto.RegistrationDTO;
-import com.ravs.fxml.ScreenController;
+import com.ravs.fxml.SceneNavigator;
 import com.ravs.util.CommonValidations;
 import com.ravs.util.InvokeAnimation;
 import java.net.URL;
@@ -34,7 +34,7 @@ public class RegistrationSceneController implements Initializable, IScreenContro
     @FXML
     TextField confirmPasswordTextField;
     RegistrationBindingDTO registrationBindingDTO;
-    ScreenController myController;
+    SceneNavigator myController;
 
     public RegistrationSceneController() {
         registrationBindingDTO = new RegistrationBindingDTO();
@@ -53,7 +53,7 @@ public class RegistrationSceneController implements Initializable, IScreenContro
     }
 
     @Override
-    public void setScreenParent(ScreenController screenPage) {
+    public void setScreenParent(SceneNavigator screenPage) {
         myController = screenPage;
     }
 
