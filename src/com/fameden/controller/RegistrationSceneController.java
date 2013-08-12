@@ -110,6 +110,6 @@ public class RegistrationSceneController implements Initializable, IScreenContro
     @FXML
     public void login() {
         System.out.println("Login");
-        System.exit(0);
+        myController.setScreen("login");
     }
 }
