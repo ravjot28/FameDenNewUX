@@ -4,7 +4,7 @@
  */
 package com.ravs.fxml;
 
-import com.ravs.controller.ControlledScreen;
+import com.ravs.controller.IScreenController;
 import java.util.HashMap;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -34,8 +34,8 @@ public class ScreenController extends StackPane {
         screens.get(name);
     }
     
-    public ControlledScreen getControlledScreen(String name){
-        return (ControlledScreen)(screens.get(name)[1]);
+    public IScreenController getControlledScreen(String name){
+        return (IScreenController)(screens.get(name)[1]);
     }
     
     public Node getNodeScreen(String name){
@@ -50,8 +50,8 @@ public class ScreenController extends StackPane {
         try {
             FXMLLoader myLoader = new FXMLLoader(getClass().getResource(resource));
             Parent loadScreen = (Parent) myLoader.load();
-            ControlledScreen myScreenControler =
-                    ((ControlledScreen) myLoader.getController());
+            IScreenController myScreenControler =
+                    ((IScreenController) myLoader.getController());
 
             myScreenControler.setScreenParent(this);
             addScreen(name, new Object[] {loadScreen,myScreenControler});
