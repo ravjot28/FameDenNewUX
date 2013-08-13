@@ -24,5 +24,10 @@ public class GlobalConstants {
     public static final String twitterIntegrationSceneFXML = "TwitterIntegration.fxml";
     public static final String twitterAppKey = "QPrDwr29NEQCsS6ctjX6iQ";
     public static final String twitterSecretAppKey = "LvwRGBUpzrg4pv2ELnKKXIefxIskj1XQd5wbcE";
+    public static final String loginScene = "loginScene";
+    public static final String loginSceneFXML = "LoginScene.fxml";
+    public static final String forgotPasswordScene = "forgotPasswordScene";
+    public static final String forgotPasswordSceneFXML = "ForgotPasswordScene.fxml";
+    
     
 }

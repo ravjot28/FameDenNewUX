@@ -24,6 +24,8 @@ public class Main extends Application {
         SceneNavigator sceneNavigator = new SceneNavigator();
         sceneNavigator.loadScreen(GlobalConstants.registrationScene, GlobalConstants.registrationSceneFXML);
         sceneNavigator.loadScreen(GlobalConstants.twitterIntegrationScene, GlobalConstants.twitterIntegrationSceneFXML);
+        sceneNavigator.loadScreen(GlobalConstants.loginScene, GlobalConstants.loginSceneFXML);
+        sceneNavigator.loadScreen(GlobalConstants.forgotPasswordScene, GlobalConstants.forgotPasswordSceneFXML);
         Group root = new Group();
         root.getChildren().addAll(sceneNavigator);
         root.autosize();
