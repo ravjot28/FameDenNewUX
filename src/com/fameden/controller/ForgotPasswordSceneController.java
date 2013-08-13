@@ -5,10 +5,8 @@
 package com.fameden.controller;
 
 import com.fameden.bindingDTO.ForgotPasswordBindingDTO;
-import com.fameden.bindingDTO.LoginBindingDTO;
 import com.fameden.constants.GlobalConstants;
 import com.fameden.dto.ForgotPasswordDTO;
-import com.fameden.dto.LoginDTO;
 import com.fameden.fxml.SceneNavigator;
 import com.fameden.util.CommonValidations;
 import com.fameden.util.InvokeAnimation;
@@ -54,6 +52,27 @@ public class ForgotPasswordSceneController implements Initializable, IScreenCont
 
     @FXML
     public void sendVerificationEmail() {
+        
+        if ((CommonValidations.isStringEmpty(this.forgotPasswordBindingDTO.getEmailID())) && 
+                (CommonValidations.isStringEmpty(this.forgotPasswordBindingDTO.getUserName())) )
+        {  
+            InvokeAnimation.attentionSeekerShake(emailAddressTextField);
+            InvokeAnimation.attentionSeekerShake(uaerNameTextField);
+        } else{
+            
+            if (CommonValidations.isValidEmailAddress(this.forgotPasswordBindingDTO.getUserName()))
+            {
+
+                forgotPasswordDTO = new ForgotPasswordDTO();
+                forgotPasswordDTO.setEmailID(this.forgotPasswordBindingDTO.getEmailID());
+                forgotPasswordDTO.setUserName(this.forgotPasswordBindingDTO.getUserName());
+                
+                //TODO Call Login Service and Receive returning object
+
+            } else {
+                InvokeAnimation.attentionSeekerWobble(emailAddressTextField);
+            } 
+        } 
         
     }
 
