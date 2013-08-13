@@ -53,7 +53,7 @@
             </HBox>
             <HBox id="HBox" alignment="CENTER" spacing="5.0">
               <children>
-                <Hyperlink fx:id="hyprlnkForgotPassword" prefWidth="137.0" text="Yikes! forgot password" textFill="WHITE" underline="true" />
+                <Hyperlink fx:id="hyprlnkForgotPassword" onAction="#forgotPassword" prefWidth="137.0" text="Yikes! forgot password" textFill="WHITE" underline="true" />
               </children>
             </HBox>
           </children>

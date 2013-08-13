@@ -87,6 +87,11 @@
         </ImageView>
       </graphic>
     </Button>
+    <Hyperlink layoutX="24.0" layoutY="435.0" onAction="#closeFired" text="I will get famous later." textFill="WHITE" underline="true">
+      <stylesheets>
+        <URL value="@../css/registrationscene.css" />
+      </stylesheets>
+    </Hyperlink>
   </children>
   <stylesheets>
     <URL value="@../css/registrationscene.css" />
