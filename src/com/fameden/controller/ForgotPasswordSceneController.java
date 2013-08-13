@@ -40,6 +40,11 @@ public class ForgotPasswordSceneController implements Initializable, IScreenCont
         Bindings.bindBidirectional(this.emailAddressTextField.textProperty(), this.forgotPasswordBindingDTO.emailProperty());
         Bindings.bindBidirectional(this.uaerNameTextField.textProperty(), this.forgotPasswordBindingDTO.userNameProperty());
     }
+    
+    @Override
+    public void setScreenParent(SceneNavigator screenPage) {
+        myController = screenPage;
+    }
 
     @FXML
     public void nevermind() {
@@ -52,8 +57,8 @@ public class ForgotPasswordSceneController implements Initializable, IScreenCont
         
     }
 
-    @Override
-    public void setScreenParent(SceneNavigator screenPage) {
-        myController = screenPage;
+    @FXML
+    public void closeFired() {
+        System.exit(0);
     }
 }

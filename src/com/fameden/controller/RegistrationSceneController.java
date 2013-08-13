@@ -114,6 +114,7 @@ public class RegistrationSceneController implements Initializable, IScreenContro
     @FXML
     public void login() {
         System.out.println("Login");
+        myController.setScreen(GlobalConstants.loginScene);
 
     }
 
@@ -121,5 +122,10 @@ public class RegistrationSceneController implements Initializable, IScreenContro
     public void twitterSignUp() {
         System.out.println("Twitter Sign Up");
         myController.setScreen(GlobalConstants.twitterIntegrationScene);
+    }
+    
+    @FXML
+    public void closeFired() {
+        System.exit(0);
     }
 }

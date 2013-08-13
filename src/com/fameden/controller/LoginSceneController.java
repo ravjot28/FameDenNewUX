@@ -74,4 +74,9 @@ public class LoginSceneController implements Initializable, IScreenController {
     public void setScreenParent(SceneNavigator screenPage) {
         myController = screenPage;
     }
+    
+    @FXML
+    public void closeFired() {
+        System.exit(0);
+    }
 }
