@@ -70,7 +70,7 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
         };
         new Thread(task).start();
         webView.setVisible(false);
-        webView.getChildrenUnmodifiable().addListener(new ListChangeListener<Node>() {
+        /*webView.getChildrenUnmodifiable().addListener(new ListChangeListener<Node>() {
             @Override
             public void onChanged(ListChangeListener.Change<? extends Node> change) {
                 Set<Node> deadSeaScrolls = webView.lookupAll(".scroll-bar");
@@ -78,7 +78,7 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
                     scroll.setVisible(false);
                 }
             }
-        });
+        });*/
         twitterIntegrationBindingDTO = new TwitterIntegrationBindingDTO();
         Bindings.bindBidirectional(pinTextField.textProperty(), twitterIntegrationBindingDTO.twitterPinProperty());
         Bindings.bindBidirectional(emailAddressTextField.textProperty(), twitterIntegrationBindingDTO.emailAddressProperty());
