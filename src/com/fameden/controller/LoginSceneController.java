@@ -27,14 +27,13 @@ import javafx.scene.layout.VBox;
 public class LoginSceneController implements Initializable, IScreenController {
 
     @FXML
-    private TextField famedenUserNameTextField,twitterUserNameTextField, passwordTextField, forgotUserNameTextField, forgotEmailTextField;
+    private TextField famedenUserNameTextField, twitterUserNameTextField, passwordTextField, forgotUserNameTextField, forgotEmailTextField;
     @FXML
     private VBox forgotPasswordVBox;
     private LoginBindingDTO loginBindingDTO;
     private ForgotPasswordBindingDTO forgotPasswordBindingDTO;
     private LoginDTO loginDTO;
     private ForgotPasswordDTO forgotPasswordDTO;
-    
     SceneNavigator myController;
 
     public LoginSceneController() {
@@ -46,7 +45,7 @@ public class LoginSceneController implements Initializable, IScreenController {
     public void initialize(URL url, ResourceBundle rb) {
         Bindings.bindBidirectional(famedenUserNameTextField.textProperty(), loginBindingDTO.emailProperty());
         Bindings.bindBidirectional(passwordTextField.textProperty(), loginBindingDTO.passwordProperty());
-        
+
         Bindings.bindBidirectional(forgotUserNameTextField.textProperty(), forgotPasswordBindingDTO.userNameProperty());
         Bindings.bindBidirectional(forgotEmailTextField.textProperty(), forgotPasswordBindingDTO.emailProperty());
     }
@@ -99,22 +98,19 @@ public class LoginSceneController implements Initializable, IScreenController {
 
     @FXML
     public void sendVerificationEmail() {
-        if (!CommonValidations.isStringEmpty(forgotPasswordBindingDTO.getUserName()) && !CommonValidations.isStringEmpty(forgotPasswordBindingDTO.getEmailID())) {
-            if (!CommonValidations.isStringEmpty(forgotPasswordBindingDTO.getUserName())) {
-                if (!CommonValidations.isStringEmpty(forgotPasswordBindingDTO.getEmailID())) {
-                    //TODO Logic to send Verification email.
-                    
-                forgotPasswordDTO = new ForgotPasswordDTO();
-                forgotPasswordDTO.setUserName(forgotPasswordBindingDTO.getUserName());
+        forgotPasswordDTO = new ForgotPasswordDTO();
+        if (!CommonValidations.isStringEmpty(forgotPasswordBindingDTO.getUserName()) || !CommonValidations.isStringEmpty(forgotPasswordBindingDTO.getEmailID())) {
+            if (!CommonValidations.isStringEmpty(forgotPasswordBindingDTO.getUserName()) && !CommonValidations.isStringEmpty(forgotPasswordBindingDTO.getEmailID())) {
+                InvokeAnimation.attentionSeekerShake(forgotEmailTextField);
+                InvokeAnimation.attentionSeekerShake(forgotUserNameTextField);
+            } else if (!CommonValidations.isStringEmpty(forgotPasswordBindingDTO.getEmailID())) {
+                //TODO Logic to send Verification email.
+//                forgotPasswordDTO = new ForgotPasswordDTO();
+//                forgotPasswordDTO.setUserName(forgotPasswordBindingDTO.getUserName());
                 forgotPasswordDTO.setEmailID(forgotPasswordBindingDTO.getEmailID());
-                
-                    
-                    
-                } else {
-                    InvokeAnimation.attentionSeekerWobble(forgotEmailTextField);
-                }
-            } else {
-                InvokeAnimation.attentionSeekerWobble(forgotUserNameTextField);
+            } else if (!CommonValidations.isStringEmpty(forgotPasswordBindingDTO.getUserName())) {
+                forgotPasswordDTO.setUserName(forgotPasswordBindingDTO.getUserName());
+                //TODO Logic to send Verification email.
             }
         } else {
             InvokeAnimation.attentionSeekerShake(forgotEmailTextField);
