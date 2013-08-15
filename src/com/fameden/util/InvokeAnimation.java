@@ -4,6 +4,7 @@
  */
 package com.fameden.util;
 
+import com.fameden.animations.FadeInFadeOutAnimation;
 import com.fameden.animations.ShakeAnimation;
 import com.fameden.animations.WobbleAnimation;
 import com.fameden.constants.GlobalConstants;
@@ -28,4 +29,16 @@ public class InvokeAnimation {
         node.getStyleClass().add(GlobalConstants.promptTextErrorCSSClass);
         wobbleTransition.play();
     }
+    
+    public static void appearByFading(Node node){
+        FadeInFadeOutAnimation fadeIn;
+        fadeIn = new FadeInFadeOutAnimation(node, false);
+        
+    }
+    public static void disappearByFading(Node node){
+        FadeInFadeOutAnimation fadeIn;
+        fadeIn = new FadeInFadeOutAnimation(node, true);
+        
+    }
+    
 }
