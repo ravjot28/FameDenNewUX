@@ -7,9 +7,9 @@ package com.fameden.start;
 import com.fameden.constants.GlobalConstants;
 import com.fameden.fxml.SceneNavigator;
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -26,12 +26,13 @@ public class Main extends Application {
         sceneNavigator.loadScreen(GlobalConstants.twitterIntegrationScene, GlobalConstants.twitterIntegrationSceneFXML);
         sceneNavigator.loadScreen(GlobalConstants.loginScene, GlobalConstants.loginSceneFXML);
         sceneNavigator.loadScreen(GlobalConstants.forgotPasswordScene, GlobalConstants.forgotPasswordSceneFXML);
-        Group root = new Group();
-        root.getChildren().addAll(sceneNavigator);
-        root.autosize();
         sceneNavigator.setScreen(GlobalConstants.registrationScene);
-        Scene scene = new Scene(root);
-        //scene.getStylesheets().add(GlobalConstants.calendarCSSPath);
+        
+        FlowPane root = new FlowPane();
+        root.getChildren().addAll(sceneNavigator);
+        
+        root.autosize();
+        Scene scene = new Scene(root);        
         
         stage.initStyle(StageStyle.UNDECORATED);
         stage.sizeToScene();
@@ -39,6 +40,7 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.centerOnScreen();
         stage.setTitle(GlobalConstants.registrationSceneTitle);
+
         stage.getIcons().add(new Image(GlobalConstants.registrationLoginIconImage));
         stage.show();
     }

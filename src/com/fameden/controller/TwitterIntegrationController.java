@@ -13,14 +13,12 @@ import com.fameden.util.CommonValidations;
 import com.fameden.util.InvokeAnimation;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Set;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
-import javafx.collections.ListChangeListener;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.WebView;
@@ -49,6 +47,10 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
     TextField emailAddressTextField;
     @FXML
     ImageView bg;
+    @FXML
+    PasswordField passwordTextField;
+    @FXML
+    PasswordField confirmPasswordTextField;
 
     /**
      * Initializes the controller class.

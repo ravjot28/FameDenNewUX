@@ -16,6 +16,7 @@ import javafx.beans.binding.Bindings;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
@@ -37,9 +38,9 @@ public class RegistrationSceneController implements Initializable, IScreenContro
     @FXML
     TextField userNameTextField;
     @FXML
-    TextField passwordTextField;
+    PasswordField passwordTextField;
     @FXML
-    TextField confirmPasswordTextField;
+    PasswordField confirmPasswordTextField;
     RegistrationBindingDTO registrationBindingDTO;
     SceneNavigator myController;
 

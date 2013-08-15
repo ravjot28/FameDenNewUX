@@ -92,6 +92,11 @@
         <URL value="@../css/registrationscene.css" />
       </stylesheets>
     </Hyperlink>
+    <StackPane layoutX="24.0" layoutY="76.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: rgba(0, 100, 100, 0.5); &#10;-fx-background-radius: 10;">
+      <children>
+        <Button mnemonicParsing="false" text="Button" />
+      </children>
+    </StackPane>
   </children>
   <stylesheets>
     <URL value="@../css/registrationscene.css" />
