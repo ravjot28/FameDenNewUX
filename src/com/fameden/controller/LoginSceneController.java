@@ -104,10 +104,14 @@ public class LoginSceneController implements Initializable, IScreenController {
                 InvokeAnimation.attentionSeekerShake(forgotEmailTextField);
                 InvokeAnimation.attentionSeekerShake(forgotUserNameTextField);
             } else if (!CommonValidations.isStringEmpty(forgotPasswordBindingDTO.getEmailID())) {
-                //TODO Logic to send Verification email.
-//                forgotPasswordDTO = new ForgotPasswordDTO();
-//                forgotPasswordDTO.setUserName(forgotPasswordBindingDTO.getUserName());
-                forgotPasswordDTO.setEmailID(forgotPasswordBindingDTO.getEmailID());
+                if (CommonValidations.isValidEmailAddress(forgotPasswordBindingDTO.getEmailID())) {
+                    //TODO Logic to send Verification email.
+                    forgotPasswordDTO.setEmailID(forgotPasswordBindingDTO.getEmailID());
+
+                } else {
+                    InvokeAnimation.attentionSeekerWobble(forgotEmailTextField);
+                }
+
             } else if (!CommonValidations.isStringEmpty(forgotPasswordBindingDTO.getUserName())) {
                 forgotPasswordDTO.setUserName(forgotPasswordBindingDTO.getUserName());
                 //TODO Logic to send Verification email.
