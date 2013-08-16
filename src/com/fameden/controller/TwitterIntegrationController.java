@@ -53,6 +53,8 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
     PasswordField confirmPasswordTextField;
     @FXML
     ImageView pleaseWait;
+    @FXML
+    ImageView noInternetConnection;
 
     /**
      * Initializes the controller class.
@@ -81,6 +83,7 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
     }
 
     public void loadTwitter() {
+        InvokeAnimation.disappearByFading(noInternetConnection);
         Task task = new Task<Void>() {
             @Override
             public Void call() {
@@ -89,6 +92,7 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
                     displayWebView();
                 } catch (Exception ex) {
                     ex.printStackTrace();
+                    InvokeAnimation.appearByFading(noInternetConnection);
                 }
                 return null;
             }
