@@ -84,6 +84,8 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
 
     public void loadTwitter() {
         InvokeAnimation.disappearByFading(noInternetConnection);
+        noInternetConnection.setVisible(false);
+        pleaseWait.setVisible(true);
         Task task = new Task<Void>() {
             @Override
             public Void call() {
@@ -92,13 +94,15 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
                     displayWebView();
                 } catch (Exception ex) {
                     ex.printStackTrace();
+                    InvokeAnimation.appearByFading(pleaseWait);
+                    pleaseWait.setVisible(false);
                     InvokeAnimation.appearByFading(noInternetConnection);
+                    noInternetConnection.setVisible(true);
                 }
                 return null;
             }
         };
         new Thread(task).start();
-        pleaseWait.setVisible(true);
         webView.setVisible(false);
     }
 
@@ -159,10 +163,11 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
             public void run() {
                 
                 InvokeAnimation.disappearByFading(pleaseWait);
-                //pleaseWait.setVisible(false);
+                
+                pleaseWait.setVisible(false);
                 webView.getEngine().load(requestToken.getAuthorizationURL());
                 webView.setVisible(true);
-                //InvokeAnimation.appearByFading(webView);
+                InvokeAnimation.appearByFading(webView);
             }
         });
     }
