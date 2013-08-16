@@ -162,7 +162,7 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
                 //pleaseWait.setVisible(false);
                 webView.getEngine().load(requestToken.getAuthorizationURL());
                 webView.setVisible(true);
-                InvokeAnimation.appearByFading(webView);
+                //InvokeAnimation.appearByFading(webView);
             }
         });
     }
