@@ -51,6 +51,8 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
     PasswordField passwordTextField;
     @FXML
     PasswordField confirmPasswordTextField;
+    @FXML
+    ImageView pleaseWait;
 
     /**
      * Initializes the controller class.
@@ -58,6 +60,27 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         bg.requestFocus();
+        twitter = TwitterFactory.getSingleton();
+        twitter.setOAuthConsumer(GlobalConstants.twitterAppKey, GlobalConstants.twitterSecretAppKey);
+
+        loadTwitter();
+        /*webView.getChildrenUnmodifiable().addListener(new ListChangeListener<Node>() {
+         @Override
+         public void onChanged(ListChangeListener.Change<? extends Node> change) {
+         Set<Node> deadSeaScrolls = webView.lookupAll(".scroll-bar");
+         for (Node scroll : deadSeaScrolls) {
+         scroll.setVisible(false);
+         }
+         }
+         });*/
+        twitterIntegrationBindingDTO = new TwitterIntegrationBindingDTO();
+        Bindings.bindBidirectional(pinTextField.textProperty(), twitterIntegrationBindingDTO.twitterPinProperty());
+        Bindings.bindBidirectional(emailAddressTextField.textProperty(), twitterIntegrationBindingDTO.emailAddressProperty());
+
+
+    }
+
+    public void loadTwitter() {
         Task task = new Task<Void>() {
             @Override
             public Void call() {
@@ -71,21 +94,8 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
             }
         };
         new Thread(task).start();
+        pleaseWait.setVisible(true);
         webView.setVisible(false);
-        /*webView.getChildrenUnmodifiable().addListener(new ListChangeListener<Node>() {
-            @Override
-            public void onChanged(ListChangeListener.Change<? extends Node> change) {
-                Set<Node> deadSeaScrolls = webView.lookupAll(".scroll-bar");
-                for (Node scroll : deadSeaScrolls) {
-                    scroll.setVisible(false);
-                }
-            }
-        });*/
-        twitterIntegrationBindingDTO = new TwitterIntegrationBindingDTO();
-        Bindings.bindBidirectional(pinTextField.textProperty(), twitterIntegrationBindingDTO.twitterPinProperty());
-        Bindings.bindBidirectional(emailAddressTextField.textProperty(), twitterIntegrationBindingDTO.emailAddressProperty());
-
-
     }
 
     @Override
@@ -132,8 +142,6 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
     public void init() throws Exception {
 
         try {
-            twitter = TwitterFactory.getSingleton();
-            twitter.setOAuthConsumer(GlobalConstants.twitterAppKey, GlobalConstants.twitterSecretAppKey);
             requestToken = twitter.getOAuthRequestToken();
             System.out.println(requestToken.getAuthorizationURL());
 
@@ -145,10 +153,25 @@ public class TwitterIntegrationController implements Initializable, IScreenContr
     public void displayWebView() {
         Platform.runLater(new Runnable() {
             public void run() {
-                webView.setVisible(true);
+                pleaseWait.setVisible(false);
                 webView.getEngine().load(requestToken.getAuthorizationURL());
+                webView.setVisible(true);
             }
         });
+    }
 
+    @FXML
+    public void reloadTwitterSignUp() {
+        if (twitter != null && requestToken != null) {
+            if (requestToken.getAuthorizationURL() != null) {
+                webView.getEngine().load(requestToken.getAuthorizationURL());
+            } else {
+                twitter = null;
+                requestToken = null;
+                loadTwitter();
+            }
+        } else {
+            loadTwitter();
+        }
     }
 }
