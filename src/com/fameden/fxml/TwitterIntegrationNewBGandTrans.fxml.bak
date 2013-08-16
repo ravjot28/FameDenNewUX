@@ -23,7 +23,7 @@
           <children>
             <TextField fx:id="emailAddressTextField" prefHeight="36.0" prefWidth="220.0" promptText="Email Address" style="-fx-font: 17px Tahoma;&#10;-fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, red 50%);&#10;-fx-stroke: black;&#10;-fx-stroke-width: 1;&#10; -fx-prompt-text-fill:grey;">
               <effect>
-                <InnerShadow height="10.0" radius="4.0" width="8.0" />
+                <InnerShadow height="8.25" radius="3.5625" width="8.0" />
               </effect>
             </TextField>
           </children>
@@ -32,25 +32,25 @@
           <children>
             <TextField id="userNameTextField" fx:id="pinTextField" prefHeight="36.0" prefWidth="220.0" promptText="Twitter Auth Code" style="-fx-font: 17px Tahoma;&#10;-fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, red 50%);&#10;-fx-stroke: black;&#10;-fx-stroke-width: 1;&#10; -fx-prompt-text-fill:grey;">
               <effect>
-                <InnerShadow height="10.0" radius="4.0" width="8.0" />
+                <InnerShadow height="8.25" radius="3.5625" width="8.0" />
               </effect>
             </TextField>
           </children>
         </HBox>
         <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
           <children>
-            <PasswordField fx:id="passwordTextField" prefHeight="36.0" prefWidth="220.0" promptText="Password" style="-fx-font: 17px Tahoma;&#10;-fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, red 50%);&#10;-fx-stroke: black;&#10;-fx-stroke-width: 1;&#10; -fx-prompt-text-fill:blue;">
+            <PasswordField fx:id="passwordTextField" prefHeight="36.0" prefWidth="220.0" promptText="Password" style="-fx-font: 17px Tahoma;&#10;-fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, red 50%);&#10;-fx-stroke: black;&#10;-fx-stroke-width: 1;&#10; -fx-prompt-text-fill:grey;">
               <effect>
-                <InnerShadow height="10.0" radius="4.0" width="8.0" />
+                <InnerShadow height="8.25" radius="3.5625" width="8.0" />
               </effect>
             </PasswordField>
           </children>
         </HBox>
         <HBox alignment="CENTER" prefHeight="60.0" prefWidth="200.0">
           <children>
-            <PasswordField fx:id="confirmPasswordTextField" prefHeight="36.0" prefWidth="220.0" promptText="Re Enter Password" style="-fx-font: 17px Tahoma;&#10;-fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, red 50%);&#10;-fx-stroke: black;&#10;-fx-stroke-width: 1;&#10; -fx-prompt-text-fill:blue;">
+            <PasswordField fx:id="confirmPasswordTextField" prefHeight="36.0" prefWidth="220.0" promptText="Re Enter Password" style="-fx-font: 17px Tahoma;&#10;-fx-fill: linear-gradient(from 0% 0% to 100% 200%, repeat, aqua 0%, red 50%);&#10;-fx-stroke: black;&#10;-fx-stroke-width: 1;&#10; -fx-prompt-text-fill:grey;">
               <effect>
-                <InnerShadow height="10.0" radius="4.0" width="8.0" />
+                <InnerShadow height="8.25" radius="3.5625" width="8.0" />
               </effect>
             </PasswordField>
           </children>
@@ -63,7 +63,13 @@
         </Pane>
       </children>
     </VBox>
-    <WebView fx:id="webView" layoutX="14.0" layoutY="14.0" prefHeight="406.0" prefWidth="317.0" />
+    <WebView fx:id="webView" layoutX="14.0" layoutY="14.0" prefHeight="374.0" prefWidth="317.0" />
+    <ImageView fx:id="pleaseWait" fitHeight="130.63187037208527" fitWidth="317.0" layoutX="14.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../image/PleaseWait.gif" preserveRatio="false" smooth="false" />
+      </image>
+    </ImageView>
+    <Button defaultButton="true" layoutX="339.0" layoutY="399.0" mnemonicParsing="false" onAction="#reloadTwitterSignUp" text="Re Load Twitter Page" />
   </children>
   <stylesheets>
     <URL value="@../css/registrationscene.css" />
